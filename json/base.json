@@ -1,0 +1,5 @@
+{
+  "hello": 5,
+  "world": "$$(subjson/one.json)$$",
+  "bye": "$$(subjson/two.json)$$"
+}
