@@ -9,13 +9,14 @@ MAIN_FILE      := src/main.cc
 HEADER_DIRS    := \
 	../libprim/inc \
 	../libjson/inc \
-	../libsettings/inc \
-	../libstrop/inc 
+	../libstrop/inc \
+	../libsettings/inc
+
 STATIC_LIBS    := \
 	../libprim/bld/libprim.a \
 	../libjson/bld/libjson.a \
-	../libsettings/bld/libsettings.a \
-	../libstrop/bld/libstrop.a
+	../libstrop/bld/libstrop.a \
+	../libsettings/bld/libsettings.a
 
 #--------------------- Cpp Lint -----------------------------------------------#
 LINT           := $(HOME)/.makeccpp/cpplint/cpplint.py
