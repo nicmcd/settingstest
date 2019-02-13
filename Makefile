@@ -8,12 +8,14 @@ MAIN_FILE      := src/main.cc
 #--------------------- External Libraries -------------------------------------#
 HEADER_DIRS    := \
 	../libprim/inc \
+	../libfio/inc \
 	../libjson/inc \
 	../libstrop/inc \
 	../libsettings/inc
 
 STATIC_LIBS    := \
 	../libprim/bld/libprim.a \
+	../libfio/bld/libfio.a \
 	../libjson/bld/libjson.a \
 	../libstrop/bld/libstrop.a \
 	../libsettings/bld/libsettings.a
@@ -33,7 +35,7 @@ SRC_EXTS       := .cc
 HDR_EXTS       := .h .tcc
 CXX_FLAGS      := -std=c++11 -Wall -Wextra -pedantic -Wfatal-errors
 CXX_FLAGS      += -march=native -g -O3 -flto
-LINK_FLAGS     :=
+LINK_FLAGS     := -lz
 
 #--------------------- Auto Makefile ------------------------------------------#
 include $(HOME)/.makeccpp/auto_bin.mk
