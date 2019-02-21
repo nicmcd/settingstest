@@ -37,5 +37,11 @@ s32 main(s32 _argc, char** _argv) {
   Json::Value settings;
   settings::commandLine(_argc, _argv, &settings);
   printf("%s\n", settings::toString(settings).c_str());
+
+  // write settings if input settings has output path
+  if (settings.isMember("outfile")) {
+    settings::writeToFile(settings, settings["outfile"].asString());
+  }
+
   return 0;
 }
