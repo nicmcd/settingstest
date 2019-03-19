@@ -18,11 +18,11 @@ COPTS = [
 ]
 
 LIBS = [
-  "@libprim//:lib",
-  "@libstrop//:lib",
-  "@libfio//:lib",
-  "@libsettings//:lib",
-  "@jsoncpp//:lib",
+  "@libprim//:prim",
+  "@libstrop//:strop",
+  "@libfio//:fio",
+  "@libsettings//:settings",
+  "@jsoncpp//:jsoncpp",
 ]
 
 cc_library(
@@ -51,7 +51,7 @@ cc_library(
 )
 
 cc_binary(
-  name = "bin",
+  name = "settingstest",
   srcs = ["src/main.cc"],
   includes = [
     "src",
@@ -83,7 +83,7 @@ cc_library(
 )
 
 cc_test(
-  name = "test",
+  name = "settingstest_test",
   copts = COPTS,
   deps = [
     ":test_lib",
