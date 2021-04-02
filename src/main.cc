@@ -28,19 +28,19 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#include <json/json.h>
-#include <prim/prim.h>
-#include <settings/settings.h>
+#include "nlohmann/json.hpp"
+#include "prim/prim.h"
+#include "settings/settings.h"
 
 s32 main(s32 _argc, char** _argv) {
-  // get JSON settings
-  Json::Value settings;
+  // Gets JSON settings.
+  nlohmann::json settings;
   settings::commandLine(_argc, _argv, &settings);
   printf("%s\n", settings::toString(settings).c_str());
 
   // write settings if input settings has output path
-  if (settings.isMember("outfile")) {
-    settings::writeToFile(settings, settings["outfile"].asString());
+  if (settings.find("outfile") != settings.end()) {
+    settings::writeToFile(settings, settings["outfile"].get<std::string>());
   }
 
   return 0;
