@@ -4,14 +4,6 @@ project(settingstest)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# nlohmann_json
-find_package(nlohmann_json REQUIRED)
-get_target_property(
-  NLOHMANN_JSON_INC
-  nlohmann_json::nlohmann_json
-  INTERFACE_INCLUDE_DIRECTORIES
-  )
-
 # zlib
 find_library(ZLIB_A NAMES libz.a PATHS ${CMAKE_INSTALL_RPATH})
 if(ZLIB_A MATCHES "NOTFOUND")
@@ -21,6 +13,14 @@ string(REPLACE lib/libz.a include/ ZLIB_INC ${ZLIB_A})
 if(NOT EXISTS ${ZLIB_INC})
   message(FATAL_ERROR "zlib include dir doesn't exist")
 endif()
+
+# nlohmann_json
+find_package(nlohmann_json REQUIRED)
+get_target_property(
+  NLOHMANN_JSON_INC
+  nlohmann_json::nlohmann_json
+  INTERFACE_INCLUDE_DIRECTORIES
+)
 
 # libprim
 find_library(LIBPRIM_A NAMES libprim.a PATHS ${CMAKE_INSTALL_RPATH})
