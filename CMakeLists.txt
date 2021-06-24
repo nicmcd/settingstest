@@ -86,6 +86,10 @@ target_link_libraries(
   ${LIBSTROP_A}
   ${LIBFIO_A}
   ${LIBSETTINGS_A}
+  ${LIBFIO_A}
+  ${LIBSTROP_A}
+  ${LIBPRIM_A}
+  ${ZLIB_A}
   )
 
 include(GNUInstallDirs)
