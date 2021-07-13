@@ -1,0 +1,6 @@
+{
+  "hello": 5,
+  "world": "$$(subconfig/one.json)$$",
+  "bye": "$$(subconfig/two.json)$$",
+  "array": [5.0, 2, "spam"]
+}
